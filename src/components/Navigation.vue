@@ -1,11 +1,14 @@
 <template>
-<nav>
-  <ul class="nav">
-    <li class="nav-item"><router-link to="/foo" class="nav-link active">Home</router-link></li>
-    <li class="nav-item"><router-link to="/bar" class="nav-link">Work</router-link></li>
-    <li class="nav-item"><router-link to="/home" class="nav-link">Education</router-link></li>
-  </ul>
-</nav>
+<div class="navigation-component">
+  <nav>
+    <ul class="nav">
+      <li class="nav-item"><router-link to="/about" class="nav-link active">About</router-link></li>
+      <li class="nav-item"><router-link to="/skills" class="nav-link active">Skills</router-link></li>
+      <li class="nav-item"><router-link to="/bar" class="nav-link">Work</router-link></li>
+      <li class="nav-item"><router-link to="/home" class="nav-link">Education</router-link></li>
+    </ul>
+  </nav>
+</div>
 </template>
 
 <script>
@@ -14,10 +17,24 @@ name: "Navigation"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
+@import "../assets/sass/variables";
 
 nav {
-  position: static;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.navigation-component {
+  background-color: $menuColor;
+  height: 50px;
+  width: 100%;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 600;
 }
 
 </style>
