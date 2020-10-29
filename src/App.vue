@@ -1,12 +1,12 @@
 <template>
   <div id="app">
 
-    <vue-scroll-indicator
-        height="7px"
-        color="#11998e"
-        background="none"
-    >
-    </vue-scroll-indicator>
+<!--    <vue-scroll-indicator-->
+<!--        height="7px"-->
+<!--        color="#11998e"-->
+<!--        background="none"-->
+<!--    >-->
+<!--    </vue-scroll-indicator>-->
     <Profile class="profile-component"/>
     <Navigation/>
 <!--    <About class="about-container"/>-->
@@ -20,14 +20,14 @@ import Navigation from "@/components/Navigation";
 import Profile from "@/components/Profile";
 // import About from "@/components/About";
 // import Skills from "@/components/Skills";
-import {VueScrollIndicator} from 'vue-scroll-indicator';
+// import {VueScrollIndicator} from 'vue-scroll-indicator';
 
 export default {
   name: 'App',
   components: {
     Navigation,
     Profile,
-    VueScrollIndicator,
+    // VueScrollIndicator,
     // About,
     // Skills
   }
@@ -50,12 +50,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: 2000px;
+  //height: 2000px;
   margin: 0 auto;
 }
 
 .profile-component {
-  padding-top: 50px;
+  //padding-top: 50px;
   width: 70%;
   margin: 0 auto 10px;
 }
