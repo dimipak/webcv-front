@@ -1,15 +1,18 @@
 <template>
   <div>
     <h2>About</h2>
-    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to
-      emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for
-      mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout.
-      Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters
-      have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine,
-      correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no
-      meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are
-      often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found
-      in the original.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+      corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+      qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+      distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+      placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut
+      officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+      recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias
+      consequatur aut perferendis doloribus asperiores repellat.</p>
   </div>
 </template>
 

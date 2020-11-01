@@ -1,35 +1,24 @@
 <template>
   <div id="app">
 
-<!--    <vue-scroll-indicator-->
-<!--        height="7px"-->
-<!--        color="#11998e"-->
-<!--        background="none"-->
-<!--    >-->
-<!--    </vue-scroll-indicator>-->
     <Profile class="profile-component"/>
+
     <Navigation/>
-<!--    <About class="about-container"/>-->
-<!--    <Skills class="skills-container" />-->
+
     <router-view></router-view>
+
   </div>
 </template>
 
 <script>
 import Navigation from "@/components/Navigation";
 import Profile from "@/components/Profile";
-// import About from "@/components/About";
-// import Skills from "@/components/Skills";
-// import {VueScrollIndicator} from 'vue-scroll-indicator';
 
 export default {
   name: 'App',
   components: {
     Navigation,
-    Profile,
-    // VueScrollIndicator,
-    // About,
-    // Skills
+    Profile
   }
 }
 </script>
