@@ -2,10 +2,11 @@
 <div class="navigation-component">
   <nav>
     <ul class="nav">
-      <li class="nav-item"><router-link to="/about" class="nav-link active">About</router-link></li>
-      <li class="nav-item"><router-link to="/skills" class="nav-link active">Skills</router-link></li>
-      <li class="nav-item"><router-link to="/bar" class="nav-link">Work</router-link></li>
-      <li class="nav-item"><router-link to="/home" class="nav-link">Education</router-link></li>
+      <li class="nav-item"><router-link to="/about" class="nav-link">About</router-link></li>
+      <li class="nav-item"><router-link to="/skills" class="nav-link">Skills</router-link></li>
+      <li class="nav-item"><router-link to="/portfolio" class="nav-link">Portfolio</router-link></li>
+      <li class="nav-item"><router-link to="/work" class="nav-link">Work</router-link></li>
+      <li class="nav-item"><router-link to="/education" class="nav-link">Education</router-link></li>
     </ul>
   </nav>
 </div>
@@ -35,6 +36,10 @@ nav {
 .nav-link {
   color: black;
   font-weight: 600;
+}
+
+.router-link-active {
+  color: $greenColor;
 }
 
 </style>

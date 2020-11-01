@@ -23,7 +23,7 @@ export default {
 
 div {
   width: 60%;
-  background-color: #e6e4e4;
+  background-color: white;
   margin: 50px auto;
   padding: 20px 100px;
 }
