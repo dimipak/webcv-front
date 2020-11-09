@@ -80,6 +80,19 @@
       <i>Powerful and enjoyable using vagrant</i>
     </div>
 
+    <div class="col">
+      <vue-ellipse-progress
+          :progress="60"
+          :size="60"
+          line="square"
+          color="#11998e"
+          emptyColor="#d5d3d3">
+        <span slot="legend-value">%</span>
+      </vue-ellipse-progress>
+      <p>IoT</p>
+      <i>My new passion is Internet of Things</i>
+    </div>
+
   </div>
 </div>
 </template>

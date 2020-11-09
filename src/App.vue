@@ -30,7 +30,7 @@ export default {
 
 body {
   background-color: $backgroundColor;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif !important;
 }
 
 #app {

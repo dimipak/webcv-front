@@ -1,24 +1,31 @@
 <template>
-<div v-if="show">
-  <h1>hello from modal</h1>
-</div>
+  <div style="position: relative" ref="box">
+    hello world
+  </div>
+
 </template>
 
 <script>
+import { TimelineLite } from 'gsap'
+
 export default {
   name: "Modal",
-  data() {
+  data () {
     return {
-      show: false
+      dialog: false,
     }
   },
-  methods: {
-    openModal() {
-      this.show = true;
-    },
-    closeModal() {
-      this.show = false;
-    }
+  mounted() {
+    const {box} = this.$refs
+    const timeline = new TimelineLite()
+
+    timeline.to(box, 2, {left:100})
+  },
+  beforeDestroy() {
+    const {box} = this.$refs
+    const timeline = new TimelineLite()
+
+    timeline.to(box, 2, {right:200})
   }
 }
 </script>
