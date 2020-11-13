@@ -9,7 +9,7 @@
 import { TimelineLite } from 'gsap'
 
 export default {
-  name: "Modal",
+  name: "Education",
   data () {
     return {
       dialog: false,

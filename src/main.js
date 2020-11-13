@@ -7,9 +7,6 @@ import App from './App.vue'
 import router from "@/router"
 
 
-// import VueAnimated from '@codekraft-studio/vue-animated'
-// Vue.use(VueAnimated)
-
 Vue.config.productionTip = false
 
 new Vue({
