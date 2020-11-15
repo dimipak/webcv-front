@@ -1,7 +1,8 @@
 <template>
 
-  <div>
-    <div class="row row-cols-3 portfolio-container">
+  <div class="portfolio-container">
+    <h2>Portfolio</h2>
+    <div class="row row-cols-3">
       <div class="col">
         <div class="portfolio-job" id="correct" @click="toggle('c')" ref="correct">
           <div class="grayscale">
@@ -102,7 +103,7 @@ export default {
   width: 60%;
   margin: 50px auto;
   background-color: white;
-  padding: 50px;
+  padding: 20px 50px 50px;
 }
 
 #correct {

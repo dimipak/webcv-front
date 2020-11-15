@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import Work from "@/components/Work";
 import Portfolio from "@/components/Portfolio";
 import Education from "@/components/Education";
+import Contact from "@/components/Contact";
 
 Vue.use(VueRouter)
 
@@ -15,7 +16,8 @@ const routes = [
     { path: '/skills', component: Skills },
     { path: '/portfolio', component: Portfolio },
     { path: '/work', component: Work },
-    { path: '/education', component: Education }
+    { path: '/education', component: Education },
+    { path: '/contact', component: Contact}
 ]
 
 const router = new VueRouter({

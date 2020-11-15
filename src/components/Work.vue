@@ -1,5 +1,6 @@
 <template>
   <div class="timeline-container">
+    <h2>Work</h2>
     <div class="container">
       <div class="timeline">
         <p><b>2019 - current</b></p>
