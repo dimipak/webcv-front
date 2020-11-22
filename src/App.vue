@@ -5,7 +5,9 @@
 
     <Navigation/>
 
-    <router-view></router-view>
+    <transition name="slither">
+      <router-view></router-view>
+    </transition>
 
   </div>
 </template>
@@ -55,5 +57,19 @@ body {
   margin: 50px auto;
   padding: 20px 100px;
 }
+
+
+.slither-enter-active, .slither-leave-active {
+  transition: transform 1s;
+}
+
+.slither-enter, .slither-leave-to {
+  transform: translateX(-200%);
+}
+
+.slither-enter-to, .slither-leave {
+  transform: translateX(200%);
+}
+
 
 </style>
