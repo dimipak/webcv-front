@@ -1,6 +1,6 @@
 <template>
   <div class="education-container">
-    <h2>Education</h2>
+    <h2 ref="education">Education</h2>
     <div class="certificate">
       <div class="header">
         <p>2009</p>
@@ -82,10 +82,37 @@ export default {
     }
   },
   mounted() {
-    // const {box} = this.$refs
-    // const timeline = new TimelineLite()
-    //
-    // timeline.to(box, 2, {left:100})
+
+    this.scrollTo()
+
+    this.fadeInContent()
+
+  },
+  methods: {
+    scrollTo: function() {
+      const headerOffSet = 120;
+      const elemPosition = this.$refs.education.offsetTop;
+      const offsetPosition = elemPosition - headerOffSet;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    },
+    fadeInContent: function() {
+      this.$el.querySelectorAll('.certificate').forEach((elem)=>{
+
+        // Create the Scene and trigger when visible
+        const scene = this.$scrollmagic.scene({
+          triggerElement: elem,
+          triggerHook: .8,
+          reverse: false
+        }).setTween(elem, .4, {opacity: 1});
+
+        this.$scrollmagic.addScene(scene);
+
+      })
+    }
   }
 }
 </script>
@@ -104,6 +131,7 @@ export default {
   box-shadow: 0 1px 4px 0 #0000004f;
   border-top: 5px solid #2c3e50;
   padding: 20px 0;
+  opacity: 0;
 
   .header {
     width: max-content;

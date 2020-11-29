@@ -1,7 +1,7 @@
 <template>
 
   <div class="portfolio-container">
-    <h2>Portfolio</h2>
+    <h2 ref="portfolio">Portfolio</h2>
     <div class="row row-cols-3">
       <div class="col">
         <div class="portfolio-job" id="correct" @click="toggle('c')" ref="correct">
@@ -97,7 +97,7 @@ export default {
     }
   },
   methods: {
-    toggle: function(e) {
+    toggle: function (e) {
       if (e === 'c') {
         this.image = this.image1
       } else if (e === 'g') {
@@ -105,9 +105,40 @@ export default {
       }
       this.modalOpen = !this.modalOpen;
     },
-    close: function() {
+    close: function () {
       this.modalOpen = false;
-    }
+    },
+    scrollTo: function () {
+      const headerOffSet = 120;
+      const elemPosition = this.$refs.portfolio.offsetTop;
+      const offsetPosition = elemPosition - headerOffSet;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    },
+    fadeInContent: function () {
+      this.$el.querySelectorAll('.col').forEach((elem, index) => {
+        // index = index > 3 ? index % 3 : index;
+        // Create the Scene and trigger when visible
+        var scene = this.$scrollmagic.scene({
+          triggerElement: elem,
+          triggerHook: .8,
+          reverse: false
+        }).setTween(elem, .4, {opacity: 1, stagger: .2, delay: '.' + index});
+
+        this.$scrollmagic.addScene(scene);
+
+      })
+    },
+  },
+  mounted() {
+
+    this.scrollTo()
+
+    this.fadeInContent()
+
   }
 }
 </script>
@@ -231,6 +262,7 @@ export default {
 
 .col {
   padding-bottom: 50px;
+  opacity: 0;
 }
 
 h6 {

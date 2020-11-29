@@ -3,7 +3,7 @@
   <nav>
     <ul class="nav">
       <li class="nav-item"><router-link to="/about" class="nav-link">About</router-link></li>
-      <li class="nav-item"><router-link to="/skills" class="nav-link">Skills</router-link></li>
+      <li class="nav-item"><router-link to="/skills#skills" class="nav-link">Skills</router-link></li>
       <li class="nav-item"><router-link to="/portfolio" class="nav-link">Portfolio</router-link></li>
       <li class="nav-item"><router-link to="/work" class="nav-link">Work</router-link></li>
       <li class="nav-item"><router-link to="/education" class="nav-link">Education</router-link></li>
@@ -15,7 +15,8 @@
 
 <script>
 export default {
-name: "Navigation"
+name: "Navigation",
+
 }
 </script>
 

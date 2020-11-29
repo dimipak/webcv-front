@@ -1,6 +1,6 @@
 <template>
 <div class="skills-container">
-  <h2>Skills</h2>
+  <h2 ref="skills">Skills</h2>
   <div class="row row-cols-4">
     <div class="col">
       <vue-ellipse-progress
@@ -100,7 +100,40 @@
 <script>
 
 export default {
-name: "Skills"
+name: "Skills",
+  mounted() {
+
+    this.scrollTo()
+
+    this.fadeInContent()
+
+  },
+  methods: {
+    scrollTo: function() {
+      const headerOffSet = 120;
+      const elemPosition = this.$refs.skills.offsetTop;
+      const offsetPosition = elemPosition - headerOffSet;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    },
+    fadeInContent: function() {
+      this.$el.querySelectorAll('.col').forEach((elem, index)=>{
+        // index = index > 3 ? index % 3 : index;
+        // Create the Scene and trigger when visible
+        var scene = this.$scrollmagic.scene({
+          triggerElement: elem,
+          triggerHook: .8,
+          reverse: false
+        }).setTween(elem, .4, {opacity: 1, stagger: .2, delay:'.' + index});
+
+        this.$scrollmagic.addScene(scene);
+
+      })
+    }
+  }
 }
 </script>
 
@@ -114,6 +147,7 @@ name: "Skills"
 
   .col {
     margin: 50px 0;
+    opacity: 0;
 
     p {
       font-weight: 600;

@@ -1,5 +1,6 @@
 import './plugins/bootstrap-vue'
 import './plugins/vue-ellipse-progress'
+import './plugins/vue-scrollmagic'
 
 import Vue from 'vue'
 import App from './App.vue'

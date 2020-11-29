@@ -3,11 +3,20 @@
 
     <Profile class="profile-component"/>
 
-    <Navigation/>
+    <Navigation ref="nav"/>
 
-    <transition name="slither">
+    <div ref="scrollToTrigger"></div>
+
+    <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
+
+    <div ref="scrollTop" id="scrollTop" @click="scrollToTop">
+      <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </div>
 
   </div>
 </template>
@@ -21,6 +30,25 @@ export default {
   components: {
     Navigation,
     Profile
+  },
+  mounted() {
+
+    var scene = this.$scrollmagic.scene({
+      triggerElement: this.$refs.scrollToTrigger,
+      triggerHook: .3,
+    }).setTween(this.$refs.scrollTop, .4, {opacity: 1, display: 'block'});
+
+    this.$scrollmagic.addScene(scene);
+
+  },
+  methods: {
+    scrollToTop: function()
+    {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    }
   }
 }
 </script>
@@ -33,6 +61,7 @@ export default {
 body {
   background-color: $backgroundColor;
   font-family: 'Work Sans', sans-serif !important;
+  overflow-x: hidden;
 }
 
 #app {
@@ -41,12 +70,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  //height: 2000px;
   margin: 0 auto;
 }
 
 .profile-component {
-  //padding-top: 50px;
   width: 70%;
   margin: 0 auto 10px;
 }
@@ -59,16 +86,31 @@ body {
 }
 
 
-.slither-enter-active, .slither-leave-active {
-  transition: transform 1s;
+.fade-enter-active, .fade-leave-active {
+  transition: all .2s;
 }
 
-.slither-enter, .slither-leave-to {
-  transform: translateX(-200%);
+.fade-enter {
+  opacity: 0;
 }
 
-.slither-enter-to, .slither-leave {
-  transform: translateX(200%);
+.fade-leave-to {
+  opacity: 0;
+}
+
+#scrollTop {
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+  opacity: 0;
+  display: none;
+  cursor: pointer;
+  transition: opacity .3s ease;
+
+  &:hover {
+    opacity: 1;
+    transition: opacity .3s ease;
+  }
 }
 
 

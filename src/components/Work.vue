@@ -1,7 +1,7 @@
-<template>
+<template ref="work">
   <div class="timeline-container">
-    <h2>Work</h2>
-    <div class="container">
+    <h2 ref="work">Work</h2>
+    <div id="test2" class="container">
       <div class="timeline">
         <p><b>2019 - current</b></p>
         <p>Greece</p>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div id="testthis" class="container">
       <div class="timeline">
         <p><b>2017 - 2019</b></p>
         <p>Greece</p>
@@ -66,8 +66,42 @@
 </template>
 
 <script>
+
 export default {
-  name: "Timeline"
+  name: "work",
+  mounted() {
+
+    this.scrollTo()
+
+    this.fadeInContent()
+
+  },
+  methods: {
+    scrollTo: function() {
+      const headerOffSet = 120;
+      const elemPosition = this.$refs.work.offsetTop;
+      const offsetPosition = elemPosition - headerOffSet;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    },
+    fadeInContent: function() {
+      this.$el.querySelectorAll('.container').forEach((elem)=>{
+
+        // Create the Scene and trigger when visible
+        const scene = this.$scrollmagic.scene({
+          triggerElement: elem,
+          triggerHook: .8,
+          reverse: false
+        }).setTween(elem, .4, {opacity: 1});
+
+        this.$scrollmagic.addScene(scene);
+
+      })
+    }
+  }
 }
 </script>
 
@@ -82,6 +116,7 @@ export default {
 
 .container {
   display: flex;
+  opacity: 0;
 }
 
 .timeline {

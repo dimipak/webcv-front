@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>About</h2>
+    <h2 ref="about">About</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -18,7 +18,22 @@
 
 <script>
 export default {
-  name: "About"
+  name: "About",
+  mounted() {
+    this.scrollTo()
+  },
+  methods: {
+    scrollTo: function() {
+      const headerOffSet = 120;
+      const elemPosition = this.$refs.about.offsetTop;
+      const offsetPosition = elemPosition - headerOffSet;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    }
+  }
 }
 </script>
 
