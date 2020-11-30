@@ -3,9 +3,9 @@
 
     <Profile class="profile-component"/>
 
-    <Navigation ref="nav"/>
+    <Navigation ref="nav" id="theNav"/>
 
-    <div ref="scrollToTrigger"></div>
+    <div ref="scrollToTrigger" id="scrollTopTrigger"></div>
 
     <transition name="fade" mode="out-in">
       <router-view></router-view>
@@ -33,6 +33,8 @@ export default {
   },
   mounted() {
 
+    this.navigationBar()
+
     var scene = this.$scrollmagic.scene({
       triggerElement: this.$refs.scrollToTrigger,
       triggerHook: .3,
@@ -48,6 +50,26 @@ export default {
         top: 0,
         behavior: "smooth"
       })
+    },
+    navigationBar: function() {
+      const trigger = this.$refs.scrollToTrigger.offsetTop;
+      const theNav = document.getElementById('theNav');
+
+      window.addEventListener('scroll', () => {
+        let windowY = window.scrollY;
+        if (windowY >= trigger) {
+          theNav.style.position = 'fixed';
+        } else {
+          theNav.style.position = 'relative';
+        }
+      })
+    }
+  },
+  watch: {
+    $route () {
+
+      const theNav = document.getElementById('theNav');
+      theNav.style.position = 'relative';
     }
   }
 }
@@ -71,6 +93,10 @@ body {
   text-align: center;
   color: #2c3e50;
   margin: 0 auto;
+}
+
+#theNav {
+  top:0;
 }
 
 .profile-component {
