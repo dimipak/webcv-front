@@ -11,6 +11,7 @@
 
       <div class="icon-container">
         <ul class="nav icon-nav">
+
           <li class="nav-item social-icons">
             <a href="https://www.github.com/dimipak" target="_blank">
               <svg height="32" viewBox="0 0 16 16" width="32" aria-hidden="true">
@@ -19,6 +20,7 @@
               </svg>
             </a>
           </li>
+
           <li class="nav-item social-icons">
             <a href="https://www.linkedin.com/in/dimitrios-pakos-7b134486/" target="_blank">
               <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="34" height="34" focusable="false">
@@ -27,6 +29,18 @@
                   <path fill="#0073b1"
                         d="M0 4.01A4.01 4.01 0 014.01 0h39.98A4.01 4.01 0 0148 4.01v39.98A4.01 4.01 0 0143.99 48H4.01A4.01 4.01 0 010 43.99V4.01zM19 18.3h6.5v3.266C26.437 19.688 28.838 18 32.445 18 39.359 18 41 21.738 41 28.597V41.3h-7V30.159c0-3.906-.937-6.109-3.32-6.109-3.305 0-4.68 2.375-4.68 6.109V41.3h-7v-23zM7 41h7V18H7v23zm8-30.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"></path>
                 </g>
+              </svg>
+            </a>
+          </li>
+
+          <li class="nav-item social-icons">
+            <a href="https://www.stackoverflow.com/users/9387521/dimipak?tab=profile" target="_blank">
+              <svg aria-hidden="true" class="svg-icon iconLogoGlyphMd native" width="32" height="37"
+                   viewBox="0 0 32 37">
+                <path d="M26 33v-9h4v13H0V24h4v9h22z" fill="#BCBBBB"></path>
+                <path
+                    d="M21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM26 18.4L13.3 7.8l2.1-2.5 12.7 10.6-2.1 2.5zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm14 10.79l.68-2.95-16.1-3.35L7 23l16.1 2.99zM23 30H7v-3h16v3z"
+                    fill="#F48024"></path>
               </svg>
             </a>
           </li>
@@ -53,11 +67,16 @@
       </div>
 
       <div class="download-cv">
-        <a type="button" class="btn btn-outline-secondary" :href="`${publicPath}Dimitrios.Pakos.CV.pdf`" target="_blank">
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-          <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-        </svg> Download CV</a>
+        <a type="button" class="btn btn-outline-secondary" :href="`${publicPath}Dimitrios.Pakos.CV.pdf`"
+           target="_blank">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd"
+                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+          Download CV</a>
       </div>
 
     </div>
