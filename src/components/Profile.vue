@@ -5,9 +5,8 @@
     <div class="profile-pic-container">
       <div id="profile"></div>
       <h1>Dimitris Pakos</h1>
-      <p>Hello, I am a web developer. I have 3 years of working experience with both front end and back end. I am very
-        enthusiastic about programming and i like to learn, test and experimented about every new technology that comes
-        forward.</p>
+      <p>Hello and welcome to my personal website</p>
+      <p>I am a BackEnd engineer with {{yearsExperience}}+ years of experience</p>
 
       <div class="icon-container">
         <ul class="nav icon-nav">
@@ -89,6 +88,13 @@ export default {
   data() {
     return {
       publicPath: process.env.BASE_URL
+    }
+  },
+  computed: {
+    yearsExperience: function() {
+      const yearStart = 2017;
+      const yearNow = new Date().getFullYear();
+      return yearNow - yearStart;
     }
   }
 }
