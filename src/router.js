@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 // Components
 import About from "@/components/About";
 import Skills from "@/components/Skills";
-import Work from "@/components/Work";
+import Experience from "@/components/Experience";
 import Portfolio from "@/components/Portfolio";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
@@ -15,7 +15,7 @@ const routes = [
     { path: '/about', component: About },
     { path: '/skills', component: Skills },
     { path: '/portfolio', component: Portfolio },
-    { path: '/work', component: Work },
+    { path: '/experience', component: Experience },
     { path: '/education', component: Education },
     { path: '/contact', component: Contact}
 ]

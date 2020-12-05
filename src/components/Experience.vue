@@ -1,6 +1,6 @@
 <template ref="work">
   <div class="timeline-container">
-    <h2 ref="work">Work</h2>
+    <h2 ref="work">Experience</h2>
 
     <div id="test2" class="container">
       <div class="timeline">
@@ -198,7 +198,7 @@
 <script>
 
 export default {
-  name: "work",
+  name: "experience",
   mounted() {
 
     this.scrollTo()
