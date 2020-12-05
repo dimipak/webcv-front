@@ -97,6 +97,7 @@ body {
 
 #theNav {
   top:0;
+  z-index: 1;
 }
 
 .profile-component {
