@@ -218,14 +218,14 @@ export default {
       })
     },
     fadeInContent: function() {
-      this.$el.querySelectorAll('.container').forEach((elem)=>{
+      this.$el.querySelectorAll('.container').forEach((elem, index)=>{
 
         // Create the Scene and trigger when visible
         const scene = this.$scrollmagic.scene({
           triggerElement: elem,
           triggerHook: .8,
           reverse: false
-        }).setTween(elem, .4, {opacity: 1});
+        }).setTween(elem, .4, {opacity: 1, delay:'.'+index});
 
         this.$scrollmagic.addScene(scene);
 
