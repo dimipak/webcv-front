@@ -7,7 +7,7 @@
       <li class="nav-item"><router-link to="/portfolio" class="nav-link">Portfolio</router-link></li>
       <li class="nav-item"><router-link to="/work" class="nav-link">Work</router-link></li>
       <li class="nav-item"><router-link to="/education" class="nav-link">Education</router-link></li>
-      <li class="nav-item"><router-link to="/contact" class="nav-link">Contact</router-link></li>
+<!--      <li class="nav-item"><router-link to="/contact" class="nav-link">Contact</router-link></li>-->
     </ul>
   </nav>
 </div>
