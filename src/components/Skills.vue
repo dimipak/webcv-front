@@ -144,6 +144,19 @@
           emptyColor="#d5d3d3">
         <span slot="legend-value">%</span>
       </vue-ellipse-progress>
+      <p>Photoshop</p>
+      <i>When i want to create some visuals for websites or a HTML5 animation banner Ad</i>
+    </div>
+
+    <div class="col">
+      <vue-ellipse-progress
+          :progress="80"
+          :size="60"
+          line="square"
+          color="#11998e"
+          emptyColor="#d5d3d3">
+        <span slot="legend-value">%</span>
+      </vue-ellipse-progress>
       <p>Linux Debian - RedHat</p>
       <i>Worked with many variants of both distributions. Very Familiar with Linux terminal and server scripting</i>
     </div>
