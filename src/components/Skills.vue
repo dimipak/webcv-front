@@ -64,7 +64,7 @@
           emptyColor="#d5d3d3">
         <span slot="legend-value">%</span>
       </vue-ellipse-progress>
-      <p>Go Lang</p>
+      <p>Go</p>
       <i>Powerful API server i am developing home but soon enough will be used for my job project</i>
     </div>
 

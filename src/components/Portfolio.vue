@@ -3,7 +3,7 @@
   <div class="portfolio-container">
     <h2 ref="portfolio">Portfolio</h2>
 
-    <div class="row row-cols-3">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
 
       <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
         <div class="portfolio-job"
@@ -156,7 +156,7 @@ export default {
 .portfolio-job {
   transition: all .2s linear;
   cursor: pointer;
-  width: 300px;
+  //width: 300px;
   height: 300px;
   background-size: 100%;
   background-position-x: center;

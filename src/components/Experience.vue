@@ -4,7 +4,7 @@
 
     <div id="test2" class="container">
       <div class="timeline">
-        <p><b>10/2019 - current</b></p>
+        <p><b>10/2019 - Current</b></p>
         <p>Greece</p>
         <p>Athens</p>
       </div>
@@ -15,11 +15,16 @@
           <h2>RoadCube</h2>
           <p>Back end developer</p>
         </div>
-        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-          officia deserunt mollit anim id est laborum.</p>
+        <ul class="description">
+          <li>Used custom PHP for managing Loyalty Digital Platform </li>
+          <li>Member of the team created RestAPI for internal and external use with Laravel as backend</li>
+          <li>Docker and Vagrant for team working</li>
+          <li>Created and managed IoT for business using C/C++ language communicating with Laravel and Go API</li>
+          <li>Member of the team creating Go API for mobile usage</li>
+          <li>Managed NodeJs API</li>
+          <li>Used Vue Js as front end</li>
+          <li>Managed Linux Server and making sure web app is up to date and operates well</li>
+        </ul>
       </div>
     </div>
 

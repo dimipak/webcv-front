@@ -6,7 +6,7 @@
       <div id="profile"></div>
       <h1>Dimitris Pakos</h1>
       <p>Hello and welcome to my personal website</p>
-      <p>I am a BackEnd engineer with {{yearsExperience}}+ years of experience</p>
+      <p>#<strong>webapps</strong> #<strong>IoT</strong> #<strong>backend</strong> #<strong>restAPI</strong></p>
 
       <div class="icon-container">
         <ul class="nav icon-nav">
