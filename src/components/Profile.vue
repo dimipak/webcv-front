@@ -1,12 +1,12 @@
 <template>
   <div class="profile-container">
-    <h1 id="owner">dimipak</h1>
+    <h1 id="owner"><router-link to="/">dimipak</router-link></h1>
     <div id="cover"></div>
     <div class="profile-pic-container">
       <div id="profile"></div>
       <h1>Dimitris Pakos</h1>
       <p>Hello and welcome to my personal website</p>
-      <p>#<strong>webapps</strong> #<strong>IoT</strong> #<strong>backend</strong> #<strong>restAPI</strong></p>
+      <p><strong>#webapps</strong> <strong>#backend</strong> <strong>#restAPI</strong> <strong>#IoT</strong></p>
 
       <div class="icon-container">
         <ul class="nav icon-nav">
@@ -175,5 +175,14 @@ export default {
   font-family: 'Carter One', cursive;
   color: $fontColor;
   padding-top: 10px;
+
+  a {
+    color:inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 </style>
