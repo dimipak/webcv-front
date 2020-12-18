@@ -6,9 +6,8 @@
     <div v-if="isLoading">
       <h3>Loading...</h3>
     </div>
-    <div v-show="!isLoading">
-      <h3>Loaded</h3>
-      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+      <div v-show="!isLoading" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
 
         <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
           <div class="portfolio-job"
@@ -34,7 +33,7 @@
         </div>
 
       </div>
-    </div>
+
 
     <transition name="fade" mode="out-in">
       <div v-if="modalOpen" class="portfolio-modal" @click.self="close()">
@@ -125,7 +124,6 @@ export default {
       })
     },
     fadeInContent: function () {
-      console.log('fffffade');
       this.$el.querySelectorAll('.col').forEach((elem, index) => {
         // index = index > 3 ? index % 3 : index;
         // Create the Scene and trigger when visible
@@ -136,7 +134,7 @@ export default {
         }).setTween(elem, .4, {opacity: 1, stagger: .2, delay: '.' + index});
 
         this.$scrollmagic.addScene(scene);
-console.log('heeeee');
+
       })
     },
   },
