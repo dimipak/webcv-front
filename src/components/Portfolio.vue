@@ -132,6 +132,24 @@ export default {
       })
     },
   },
+  created() {
+    let imageLoaded = 0;
+    for (const imageSrc of this.portfolios) {
+      const img = new Image();
+      img.src = require('@/assets/images/portfolio/websites/'+imageSrc.image)
+
+      img.onload = () => {
+        imageLoaded++;
+
+        if (imageLoaded === this.portfolios.length) {
+          console.log("Done !");
+          this.isLoading = false;
+        }
+
+        console.log(imageLoaded);
+      };
+    }
+  },
   mounted() {
 
     this.scrollTo()
