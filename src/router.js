@@ -11,13 +11,16 @@ import Contact from "@/components/Contact";
 
 Vue.use(VueRouter)
 
+const notFound = { template: '<h4>Not Found</h4>' }
+
 const routes = [
     { path: '/about', component: About },
     { path: '/skills', component: Skills },
     { path: '/portfolio', component: Portfolio },
     { path: '/experience', component: Experience },
     { path: '/education', component: Education },
-    { path: '/contact', component: Contact}
+    { path: '/contact', component: Contact},
+    { path: '*', component: notFound}
 ]
 
 const router = new VueRouter({

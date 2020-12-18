@@ -6,35 +6,34 @@
     <div v-if="isLoading">
       <h3>Loading...</h3>
     </div>
-    <div v-else>
+    <div v-show="!isLoading">
       <h3>Loaded</h3>
-    </div>
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
 
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-
-      <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
-        <div class="portfolio-job"
-             @click="toggle(index)"
-             :style="{backgroundImage: 'url('+require('@/assets/images/portfolio/websites/'+portfolio.image)+')'}"
-        >
-          <div class="grayscale">
-            <div class="magnify-lens">
-              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="white"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                      d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                <path fill-rule="evenodd"
-                      d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-              </svg>
-            </div>
-            <div class="details">
-              <p>{{portfolio.technology}}</p>
-              <p>{{portfolio.client}}</p>
+        <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
+          <div class="portfolio-job"
+               @click="toggle(index)"
+               :style="{backgroundImage: 'url('+require('@/assets/images/portfolio/websites/'+portfolio.image)+')'}"
+          >
+            <div class="grayscale">
+              <div class="magnify-lens">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="white"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                  <path fill-rule="evenodd"
+                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                </svg>
+              </div>
+              <div class="details">
+                <p>{{portfolio.technology}}</p>
+                <p>{{portfolio.client}}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
 
     <transition name="fade" mode="out-in">
@@ -115,17 +114,18 @@ export default {
     close: function () {
       this.modalOpen = false;
     },
-    // scrollTo: function () {
-    //   const headerOffSet = 120;
-    //   const elemPosition = this.$refs.portfolio.offsetTop;
-    //   const offsetPosition = elemPosition - headerOffSet;
-    //
-    //   window.scrollTo({
-    //     top: offsetPosition,
-    //     behavior: "smooth"
-    //   })
-    // },
+    scrollTo: function () {
+      const headerOffSet = 120;
+      const elemPosition = this.$refs.portfolio.offsetTop;
+      const offsetPosition = elemPosition - headerOffSet;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    },
     fadeInContent: function () {
+      console.log('fffffade');
       this.$el.querySelectorAll('.col').forEach((elem, index) => {
         // index = index > 3 ? index % 3 : index;
         // Create the Scene and trigger when visible
@@ -136,7 +136,7 @@ export default {
         }).setTween(elem, .4, {opacity: 1, stagger: .2, delay: '.' + index});
 
         this.$scrollmagic.addScene(scene);
-
+console.log('heeeee');
       })
     },
   },
@@ -156,11 +156,11 @@ export default {
         }
 
         console.log(imageLoaded);
+        console.log("src = " + img.src);
       };
     }
   },
   mounted() {
-
     // this.scrollTo()
 
     this.fadeInContent()
