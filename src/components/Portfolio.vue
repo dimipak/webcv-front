@@ -3,6 +3,13 @@
   <div class="portfolio-container">
     <h2 ref="portfolio">Portfolio</h2>
 
+    <div v-if="isLoading">
+      <h3>Loading...</h3>
+    </div>
+    <div v-else>
+      <h3>Loaded</h3>
+    </div>
+
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
 
       <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
@@ -62,6 +69,7 @@ export default {
   data() {
     return {
       modalOpen: false,
+      isLoading: true,
       image: "",
       link: "",
       portfolios: [
@@ -107,16 +115,16 @@ export default {
     close: function () {
       this.modalOpen = false;
     },
-    scrollTo: function () {
-      const headerOffSet = 120;
-      const elemPosition = this.$refs.portfolio.offsetTop;
-      const offsetPosition = elemPosition - headerOffSet;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      })
-    },
+    // scrollTo: function () {
+    //   const headerOffSet = 120;
+    //   const elemPosition = this.$refs.portfolio.offsetTop;
+    //   const offsetPosition = elemPosition - headerOffSet;
+    //
+    //   window.scrollTo({
+    //     top: offsetPosition,
+    //     behavior: "smooth"
+    //   })
+    // },
     fadeInContent: function () {
       this.$el.querySelectorAll('.col').forEach((elem, index) => {
         // index = index > 3 ? index % 3 : index;
@@ -144,6 +152,7 @@ export default {
         if (imageLoaded === this.portfolios.length) {
           console.log("Done !");
           this.isLoading = false;
+          console.log("isLoading = " + this.isLoading)
         }
 
         console.log(imageLoaded);
@@ -152,7 +161,7 @@ export default {
   },
   mounted() {
 
-    this.scrollTo()
+    // this.scrollTo()
 
     this.fadeInContent()
 
