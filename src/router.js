@@ -11,7 +11,7 @@ import Contact from "@/components/Contact";
 
 Vue.use(VueRouter)
 
-const notFound = { template: '<h4>Not Found</h4>' }
+const empty = { template: '<div></div>' }
 
 const routes = [
     { path: '/about', component: About },
@@ -20,7 +20,8 @@ const routes = [
     { path: '/experience', component: Experience },
     { path: '/education', component: Education },
     { path: '/contact', component: Contact},
-    { path: '*', component: notFound}
+    { path: '/', component: empty},
+    { path: '*', redirect: '/'}
 ]
 
 const router = new VueRouter({

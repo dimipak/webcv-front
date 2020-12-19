@@ -1,29 +1,54 @@
 <template>
-  <div id="app">
 
-    <Profile class="profile-component"/>
+  <div>
+    <div id="loader">
+      <div>
+        <h1 id="loader-name">
+          <span class="loader-letter">d</span>
+          <span class="loader-letter">i</span>
+          <span class="loader-letter">m</span>
+          <span class="loader-letter">i</span>
+          <span class="loader-letter">p</span>
+          <span class="loader-letter">a</span>
+          <span class="loader-letter">k</span>
+        </h1>
+      </div>
+      <div>
+        <div>
 
-    <Navigation ref="nav" id="theNav"/>
-
-    <div ref="scrollToTrigger" id="scrollTopTrigger"></div>
-
-    <transition name="fade" mode="out-in">
-      <router-view></router-view>
-    </transition>
-
-    <div ref="scrollTop" id="scrollTop" @click="scrollToTop">
-      <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-        <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-      </svg>
+        </div>
+      </div>
     </div>
 
+    <transition name="enter" mode="out-in">
+      <div v-show="!isLoading && !animation" id="app">
+
+        <Profile class="profile-component"/>
+
+        <Navigation ref="nav" id="theNav"/>
+
+        <div ref="scrollToTrigger" id="scrollTopTrigger"></div>
+
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
+
+        <div ref="scrollTop" id="scrollTop" @click="scrollToTop">
+          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+          </svg>
+        </div>
+
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import Navigation from "@/components/Navigation";
 import Profile from "@/components/Profile";
+import { TimelineLite } from 'gsap'
 
 export default {
   name: 'App',
@@ -31,7 +56,21 @@ export default {
     Navigation,
     Profile
   },
+  data() {
+    return {
+      isLoading: true,
+      animation: true
+    }
+  },
   mounted() {
+
+
+    this.isLoading = false
+
+
+    var test = new TimelineLite({onComplete: () => {this.animation = false}})
+
+    test.from('.loader-letter', .7, {opacity:0, stagger: .1});
 
     this.navigationBar()
 
@@ -54,9 +93,10 @@ export default {
     navigationBar: function() {
       const trigger = this.$refs.scrollToTrigger.offsetTop;
       const theNav = document.getElementById('theNav');
-
+      console.log('trigger = ' + trigger)
       window.addEventListener('scroll', () => {
         let windowY = window.scrollY;
+        console.log('windowY = ' + windowY)
         if (windowY >= trigger) {
           theNav.style.position = 'fixed';
         } else {
@@ -77,7 +117,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import "assets/sass/variables";
 
 body {
@@ -94,6 +134,24 @@ body {
   color: #2c3e50;
   margin: 0 auto;
 }
+
+#loader {
+  width: 100%;
+  height: auto;
+
+  div {
+    width: max-content;
+    margin: 0 auto;
+
+    h1 {
+      font-family: 'Carter One', cursive;
+      color: $fontColor;
+      padding-top: 10px;
+      position: relative;
+    }
+  }
+}
+
 
 #theNav {
   top:0;
@@ -112,6 +170,13 @@ body {
   padding: 20px 100px;
 }
 
+.enter-enter-active {
+  transition: all .5s ease;
+}
+
+.enter-enter {
+  opacity: 0;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: all .2s;

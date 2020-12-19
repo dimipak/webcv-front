@@ -1,6 +1,6 @@
 <template>
   <div class="profile-container">
-    <h1 id="owner"><router-link to="/">dimipak</router-link></h1>
+<!--    <h1 id="owner"><router-link to="/">dimipak</router-link></h1>-->
     <div id="cover"></div>
     <div class="profile-pic-container">
       <div id="profile"></div>
@@ -102,7 +102,7 @@ export default {
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
 
 @import "../assets/sass/variables";
 
@@ -171,18 +171,18 @@ export default {
   }
 }
 
-#owner {
-  font-family: 'Carter One', cursive;
-  color: $fontColor;
-  padding-top: 10px;
-
-  a {
-    color:inherit;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
+//#owner {
+//  font-family: 'Carter One', cursive;
+//  color: $fontColor;
+//  padding-top: 10px;
+//
+//  a {
+//    color:inherit;
+//    text-decoration: none;
+//
+//    &:hover {
+//      text-decoration: none;
+//    }
+//  }
+//}
 </style>

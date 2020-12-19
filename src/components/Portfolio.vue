@@ -148,18 +148,15 @@ export default {
         imageLoaded++;
 
         if (imageLoaded === this.portfolios.length) {
-          console.log("Done !");
           this.isLoading = false;
-          console.log("isLoading = " + this.isLoading)
         }
 
-        console.log(imageLoaded);
-        console.log("src = " + img.src);
       };
     }
   },
   mounted() {
     // this.scrollTo()
+
 
     this.fadeInContent()
 
