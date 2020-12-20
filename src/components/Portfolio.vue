@@ -7,7 +7,7 @@
       <div></div>
     </div>
 
-      <div v-show="!isLoading" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+      <div v-show="!isLoading" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
 
         <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
           <div class="portfolio-job"
@@ -186,6 +186,10 @@ export default {
   margin: 50px auto;
   background-color: white;
   padding: 20px 50px 50px;
+
+  @media screen and (max-width: 520px) {
+    width: 100%;
+  }
 }
 
 .portfolio-job {
@@ -281,6 +285,11 @@ h6 {
     width: 700px;
     max-height: 700px;
     margin: 5em auto 0;
+
+    @media screen and (max-width: 700px) {
+      width: 100%;
+      max-height: 500px;
+    }
 
     .portfolio-link {
       bottom: 10px;
