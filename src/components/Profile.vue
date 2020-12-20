@@ -1,6 +1,5 @@
 <template>
   <div class="profile-container">
-<!--    <h1 id="owner"><router-link to="/">dimipak</router-link></h1>-->
     <div id="cover"></div>
     <div class="profile-pic-container">
       <div id="profile"></div>
@@ -171,18 +170,4 @@ export default {
   }
 }
 
-//#owner {
-//  font-family: 'Carter One', cursive;
-//  color: $fontColor;
-//  padding-top: 10px;
-//
-//  a {
-//    color:inherit;
-//    text-decoration: none;
-//
-//    &:hover {
-//      text-decoration: none;
-//    }
-//  }
-//}
 </style>

@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     scrollTo: function () {
-      const headerOffSet = 120;
+      const headerOffSet = 75;
       const elemPosition = this.$refs.about.offsetTop;
       const offsetPosition = elemPosition - headerOffSet;
 

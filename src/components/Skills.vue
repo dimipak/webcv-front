@@ -218,7 +218,7 @@ name: "Skills",
   },
   methods: {
     scrollTo: function() {
-      const headerOffSet = 120;
+      const headerOffSet = 75;
       const elemPosition = this.$refs.skills.offsetTop;
       const offsetPosition = elemPosition - headerOffSet;
 
@@ -229,9 +229,8 @@ name: "Skills",
     },
     fadeInContent: function() {
       this.$el.querySelectorAll('.col').forEach((elem, index)=>{
-        // index = index > 3 ? index % 3 : index;
+
         index = index <= 11 ? index * .1 : (index - 10)/10
-        console.log(index)
         // Create the Scene and trigger when visible
         const scene = this.$scrollmagic.scene({
           triggerElement: elem,

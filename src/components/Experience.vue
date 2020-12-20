@@ -1,3 +1,4 @@
+<script src="../../../../Ex_Files/Ex_Files_VueJS/ch4/04_06/end/grid_component/AsteroidGrid.js"></script>
 <template ref="work">
   <div class="timeline-container">
     <h2 ref="work">Experience</h2>
@@ -213,7 +214,7 @@ export default {
   },
   methods: {
     scrollTo: function() {
-      const headerOffSet = 120;
+      const headerOffSet = 75;
       const elemPosition = this.$refs.work.offsetTop;
       const offsetPosition = elemPosition - headerOffSet;
 

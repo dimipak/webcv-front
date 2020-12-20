@@ -3,20 +3,20 @@
   <div>
     <div id="loader">
       <div>
-        <h1 id="loader-name">
-          <span class="loader-letter">d</span>
-          <span class="loader-letter">i</span>
-          <span class="loader-letter">m</span>
-          <span class="loader-letter">i</span>
-          <span class="loader-letter">p</span>
-          <span class="loader-letter">a</span>
-          <span class="loader-letter">k</span>
+        <h1>
+          <router-link to="/">
+            <span class="loader-letter">d</span>
+            <span class="loader-letter">i</span>
+            <span class="loader-letter">m</span>
+            <span class="loader-letter">i</span>
+            <span class="loader-letter">p</span>
+            <span class="loader-letter">a</span>
+            <span class="loader-letter">k</span>
+          </router-link>
         </h1>
       </div>
-      <div>
-        <div>
-
-        </div>
+      <div id="spinner" v-show="isLoading || animation">
+        <div></div>
       </div>
     </div>
 
@@ -56,6 +56,11 @@ export default {
     Navigation,
     Profile
   },
+  computed: {
+    combined() {
+      return (!this.isLoading && !this.animation)
+    }
+  },
   data() {
     return {
       isLoading: true,
@@ -64,23 +69,12 @@ export default {
   },
   mounted() {
 
-
     this.isLoading = false
 
+    gsap.timeline({onComplete: () => { this.animation = false }})
+        .from('.loader-letter', {duration:1, opacity:0, stagger: .1});
 
-    // var test = gsap.TimelineLite({onComplete: () => {this.animation = false}})
-    var test = gsap.timeline({onComplete: () => { this.animation = false }});
-
-    test.from('.loader-letter', {duration:1, opacity:0, stagger: .1});
-
-    this.navigationBar()
-
-    var scene = this.$scrollmagic.scene({
-      triggerElement: this.$refs.scrollToTrigger,
-      triggerHook: .3,
-    }).setTween(this.$refs.scrollTop, .4, {opacity: 1, display: 'block'});
-
-    this.$scrollmagic.addScene(scene);
+    this.scrollToTopShow()
 
   },
   methods: {
@@ -91,13 +85,21 @@ export default {
         behavior: "smooth"
       })
     },
+    scrollToTopShow: function() {
+      const scene = this.$scrollmagic.scene({
+        triggerElement: this.$refs.scrollToTrigger,
+        triggerHook: .3,
+      }).setTween(this.$refs.scrollTop, .4, {opacity: 1, display: 'block'});
+
+      this.$scrollmagic.addScene(scene);
+    },
     navigationBar: function() {
       const trigger = this.$refs.scrollToTrigger.offsetTop;
       const theNav = document.getElementById('theNav');
       console.log('trigger = ' + trigger)
       window.addEventListener('scroll', () => {
         let windowY = window.scrollY;
-        console.log('windowY = ' + windowY)
+        // console.log('windowY = ' + windowY)
         if (windowY >= trigger) {
           theNav.style.position = 'fixed';
         } else {
@@ -111,6 +113,14 @@ export default {
 
       const theNav = document.getElementById('theNav');
       theNav.style.position = 'relative';
+    },
+
+    combined: function(value) {
+      if (value === true) {
+        setTimeout(() => {
+          this.navigationBar()
+        })
+      }
     }
   }
 }
@@ -149,8 +159,42 @@ body {
       color: $fontColor;
       padding-top: 10px;
       position: relative;
+
+      a {
+        color:inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
+}
+
+#spinner {
+  margin-top: 15% !important;
+
+  div {
+    border: 2px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 2px solid #2c3e50;
+    width: 30px !important;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 

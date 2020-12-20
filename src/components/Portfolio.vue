@@ -114,7 +114,7 @@ export default {
       this.modalOpen = false;
     },
     scrollTo: function () {
-      const headerOffSet = 120;
+      const headerOffSet = 75;
       const elemPosition = this.$refs.portfolio.offsetTop;
       const offsetPosition = elemPosition - headerOffSet;
 
