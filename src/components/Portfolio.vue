@@ -3,8 +3,8 @@
   <div class="portfolio-container">
     <h2 ref="portfolio">Portfolio</h2>
 
-    <div v-if="isLoading">
-      <h3>Loading...</h3>
+    <div id="component-spinner" v-if="isLoading">
+      <div></div>
     </div>
 
       <div v-show="!isLoading" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
@@ -167,6 +167,11 @@ export default {
 <style lang="scss" scoped>
 
 @import "../assets/sass/variables";
+@import "../assets/sass/mixins";
+
+#component-spinner {
+  @include spinner();
+}
 
 .portfolio-container {
   width: 60%;

@@ -130,6 +130,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import "assets/sass/variables";
+@import "assets/sass/mixins";
 
 body {
   background-color: $backgroundColor;
@@ -173,17 +174,7 @@ body {
 }
 
 #spinner {
-  margin-top: 15% !important;
-
-  div {
-    border: 2px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 2px solid #2c3e50;
-    width: 30px !important;
-    height: 30px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-  }
+  @include spinner();
 }
 
 /* Safari */
