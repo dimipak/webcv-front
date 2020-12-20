@@ -69,7 +69,9 @@ export default {
   },
   mounted() {
 
-    this.isLoading = false
+    window.onload = () => {
+      this.isLoading = false
+    }
 
     gsap.timeline({onComplete: () => { this.animation = false }})
         .from('.loader-letter', {duration:1, opacity:0, stagger: .1});
