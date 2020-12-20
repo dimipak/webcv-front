@@ -48,7 +48,7 @@
 <script>
 import Navigation from "@/components/Navigation";
 import Profile from "@/components/Profile";
-import { TimelineLite } from 'gsap'
+import gsap from 'gsap'
 
 export default {
   name: 'App',
@@ -68,9 +68,10 @@ export default {
     this.isLoading = false
 
 
-    var test = new TimelineLite({onComplete: () => {this.animation = false}})
+    // var test = gsap.TimelineLite({onComplete: () => {this.animation = false}})
+    var test = gsap.timeline({onComplete: () => { this.animation = false }});
 
-    test.from('.loader-letter', .7, {opacity:0, stagger: .1});
+    test.from('.loader-letter', {duration:1, opacity:0, stagger: .1});
 
     this.navigationBar()
 
