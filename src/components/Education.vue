@@ -246,6 +246,10 @@ export default {
   width: 60%;
   margin: 50px auto;
   background-color: white;
+
+  @media screen and (max-width: 520px) {
+    width: 100%;
+  }
 }
 
 a {
@@ -253,10 +257,6 @@ a {
 
   &:hover {
     text-decoration: none;
-  }
-
-  &:hover .certificate {
-    //box-shadow: 0 1px 4px 0 #0000004f;
   }
 
 }
@@ -275,7 +275,6 @@ p {
   }
 
   .header {
-    width: max-content;
     margin:0 auto;
 
     h2 {
