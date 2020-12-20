@@ -101,10 +101,9 @@ export default {
     navigationBar: function() {
       const trigger = this.$refs.scrollToTrigger.offsetTop;
       const theNav = document.getElementById('theNav');
-      console.log('trigger = ' + trigger)
+
       window.addEventListener('scroll', () => {
         let windowY = window.scrollY;
-        // console.log('windowY = ' + windowY)
         if (windowY >= trigger) {
           theNav.style.position = 'fixed';
         } else {

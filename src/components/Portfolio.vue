@@ -116,7 +116,6 @@ export default {
     scrollTo: function () {
       const headerOffSet = 75;
       const elemPosition = this.$refs.portfolio.offsetTop;
-      console.log('elemPosition: '  + elemPosition)
       const offsetPosition = elemPosition - headerOffSet;
 
       window.scrollTo({
