@@ -201,6 +201,10 @@ body {
 .profile-component {
   width: 70%;
   margin: 0 auto 10px;
+
+  @media screen and (max-width: 520px) {
+    width: 100%;
+  }
 }
 
 .about-container, .skills-container {

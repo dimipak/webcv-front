@@ -33,11 +33,19 @@ nav {
   background-color: $menuColor;
   height: 50px;
   width: 100%;
+
+  @media screen and (max-width: 490px) {
+    overflow-x: scroll;
+  }
 }
 
 .nav-link {
   color: black;
   font-weight: 600;
+
+  @media screen and (max-width: 400px) {
+    padding: .5rem .7rem;
+  }
 }
 
 .router-link-active {

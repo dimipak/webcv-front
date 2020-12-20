@@ -117,6 +117,14 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0 auto 10px;
+
+  @media screen and (max-width: 1850px) {
+    background-position-y: 0;
+  }
+
+  @media screen and (max-width: 400px) {
+    height: 170px;
+  }
 }
 
 #profile {
@@ -132,6 +140,16 @@ export default {
   top: -110px;
   right: 10px;
   margin: 0 auto;
+
+  @media screen and (max-width: 1250px) {
+    width: 120px;
+    height: 120px;
+    top: -66px;
+  }
+
+  @media screen and (max-width: 930px) {
+    top: -100px;
+  }
 }
 
 .profile-pic-container {
@@ -143,6 +161,10 @@ export default {
   p {
     width: 50%;
     margin: 0 auto;
+
+    @media screen and (max-width: 750px) {
+      width: 90%;
+    }
   }
 
   .download-cv {
