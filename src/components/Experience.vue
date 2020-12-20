@@ -248,6 +248,10 @@ export default {
   width: 60%;
   margin: 50px auto;
   background-color: white;
+
+  @media screen and (max-width: 580px) {
+    width: 100%;
+  }
 }
 
 .container {
@@ -273,13 +277,13 @@ export default {
   border-radius: 50%;
   position: relative;
   top: 46px;
-  left: 9.5px;
+  left: 10.5px;
 }
 
 .details {
-  width: 90%;
+  width: 75%;
   text-align: left;
-  padding: 6px 20px 100px;
+  padding: 6px 15px 100px;
   border-left: 5px solid #ccd5db;
 
   .description {

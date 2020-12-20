@@ -252,7 +252,11 @@ name: "Skills",
   width: 60%;
   background-color: white;
   margin: 50px auto;
-  padding: 20px 100px;
+  padding: 20px 60px;
+
+  @media screen and (max-width: 520px) {
+    width: 100%;
+  }
 
   .col {
     margin: 50px 0;
