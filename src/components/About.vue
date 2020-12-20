@@ -48,13 +48,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 div {
   width: 60%;
   background-color: white;
   margin: 50px auto;
   padding: 20px 100px;
+
+  @media screen and (max-width: 900px) {
+    padding: 20px 60px;
+  }
+
+  @media screen and (max-width: 520px) {
+    padding: 20px 40px;
+    width: 100%;
+  }
 }
 
 p {
