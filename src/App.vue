@@ -21,7 +21,7 @@
     </div>
 
     <transition name="enter" mode="out-in">
-      <div v-show="!isLoading && !animation" id="app">
+      <div v-show="combined" id="app">
 
         <Profile class="profile-component"/>
 
@@ -67,11 +67,16 @@ export default {
       animation: true
     }
   },
-  mounted() {
-
+  beforeCreate() {
     window.onload = () => {
       this.isLoading = false
     }
+  },
+  mounted() {
+
+    // window.onload = () => {
+    //   this.isLoading = false
+    // }
 
     gsap.timeline({onComplete: () => { this.animation = false }})
         .from('.loader-letter', {duration:1, opacity:0, stagger: .1});
