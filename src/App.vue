@@ -68,15 +68,13 @@ export default {
     }
   },
   beforeCreate() {
-    window.onload = () => {
-      this.isLoading = false
-    }
-  },
-  mounted() {
-
     // window.onload = () => {
     //   this.isLoading = false
     // }
+  },
+  mounted() {
+
+    this.isLoading = false
 
     gsap.timeline({onComplete: () => { this.animation = false }})
         .from('.loader-letter', {duration:1, opacity:0, stagger: .1});

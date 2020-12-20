@@ -116,6 +116,7 @@ export default {
     scrollTo: function () {
       const headerOffSet = 75;
       const elemPosition = this.$refs.portfolio.offsetTop;
+      console.log('elemPosition: '  + elemPosition)
       const offsetPosition = elemPosition - headerOffSet;
 
       window.scrollTo({
@@ -148,18 +149,26 @@ export default {
         imageLoaded++;
 
         if (imageLoaded === this.portfolios.length) {
-          this.isLoading = false;
+            this.isLoading = false;
         }
 
       };
     }
   },
   mounted() {
-    // this.scrollTo()
 
+    this.scrollTo()
 
     this.fadeInContent()
-
+  },
+  watch: {
+    isLoading: function(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        setTimeout(() => {
+          this.scrollTo()
+        })
+      }
+    }
   }
 }
 </script>
