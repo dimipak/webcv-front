@@ -1,4 +1,3 @@
-<script src="../../../../Ex_Files/Ex_Files_VueJS/ch4/04_06/end/grid_component/AsteroidGrid.js"></script>
 <template ref="work">
   <div class="timeline-container">
     <h2 ref="work">Experience</h2>
