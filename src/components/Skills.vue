@@ -39,7 +39,7 @@
         <span slot="legend-value">%</span>
       </vue-ellipse-progress>
       <p>MySQL / Postgres / Redis</p>
-      <i>While i used MySQL most of the times Postgres seems a lot more interesting and advanced database</i>
+      <i>While i used MySQL most of the times Postgres seems a lot more interesting and a more advanced database</i>
     </div>
 
     <div class="col">
@@ -52,7 +52,7 @@
         <span slot="legend-value">%</span>
       </vue-ellipse-progress>
       <p>Docker / Vagrant</p>
-      <i>Docker when it comes with Vagrant its a powerful combination when working with different OS</i>
+      <i>Docker when it comes with Vagrant is a powerful combination when working with different OS</i>
     </div>
 
     <div class="col">
@@ -65,7 +65,7 @@
         <span slot="legend-value">%</span>
       </vue-ellipse-progress>
       <p>Go</p>
-      <i>Powerful API server i am developing home but soon enough will be used for my job project</i>
+      <i>Powerful API server currently developing at home but soon enough will be used for a job project</i>
     </div>
 
     <div class="col">

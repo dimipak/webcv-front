@@ -17,13 +17,13 @@
         </div>
         <ul class="description">
           <li>Used custom PHP for managing Loyalty Digital Platform </li>
-          <li>Member of the team created RestAPI for internal and external use with Laravel as backend</li>
+          <li>Member of the team created RestAPI for internal and external use, with Laravel as backend</li>
           <li>Docker and Vagrant for team working</li>
           <li>Created and managed IoT for business using C/C++ language communicating with Laravel and Go API</li>
           <li>Member of the team creating Go API for mobile usage</li>
-          <li>Managed NodeJs API</li>
+          <li>Worked on NodeJs API</li>
           <li>Used Vue Js as front end</li>
-          <li>Managed Linux Server and making sure web app is up to date and operates well</li>
+          <li>Managed Linux Server and making sure is up to date on a daily bases</li>
         </ul>
       </div>
     </div>

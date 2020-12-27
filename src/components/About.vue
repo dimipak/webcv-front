@@ -3,26 +3,19 @@
     <h2 ref="about">About</h2>
     <p>
       Programming is my passion. I love writing code and when i am not, i truly miss it. I started by myself watching
-      lessons at internet mainly at lynda.com and later on at linkedin learning.
+      lessons on the internet mainly at lynda.com and later on at linkedin learning.
     </p>
     <p>
-      I have learned a lot in the past years in both work and personal experience. I always try to be up to date about
-      new technologies that comes forward every day. I found myself enjoying better as a backend on various languages
-      but frontend its not something that passed by without notice.
-    </p>
-    <!--    <p>-->
-    <!--      When i started learning i created websites for training and after some time a took a job as a junior web-->
-    <!--      developer - IT. After two years at this job i found myself that there is nothing more i can learn. I needed a job-->
-    <!--      which i can be more developer than IT and collaborate with other developers. Today after more than a year at my-->
-    <!--      current job and watching a lot of lessons at the same time i think i am more a mid level developer who always-->
-    <!--      searching for new technologies that come forward every day.-->
-    <!--    </p>-->
-    <p>
-      I am a teamwork player, cooperative and i can, and i have in the past, take responsibilities without any issues. I
-      always want to write as much clean code and readable as i can.
+      I have learned a lot in the past years in both work and personal experience. I always try to be up to date with
+      new technologies that come up every day. I found myself enjoying better being a backend developer using various
+      languages but frontend is something that does not go without notice.
     </p>
     <p>
-      If i am not coding, i like to exercise my self in the gym or watching nice movies.
+      I am a teamwork player, cooperative and i always take responsibilities without any hesitation. I am keen on
+      writing clean and readable code as much as possible.
+    </p>
+    <p>
+      If i am not coding, i like to like to work out in the gym or watch movies.
     </p>
   </div>
 </template>
