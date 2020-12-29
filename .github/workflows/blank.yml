@@ -29,11 +29,11 @@ jobs:
       - run: npm build
         
       - name: Publish
-        uses: appleboy/scp-action@master
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          host: dimipak.gr
+          server: sftp.dimipak.gr
           username: ${{ secrets.USER_DIGITAL_OCEAN }}
           password: ${{ secrets.PASS_DIGITAL_OCEAN }}
           port: 22
-          source: "dist/*"
-          target: "/var/www/dimipak"
+          local-dir: "dist/"
+          server-dir: "/var/www/dimipak/"
