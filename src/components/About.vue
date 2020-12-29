@@ -15,7 +15,7 @@
       writing clean and readable code as much as possible.
     </p>
     <p>
-      If i am not coding, i like to like to work out in the gym or watch movies.
+      If i am not coding, i like to work out in the gym or watch movies.
     </p>
   </div>
 </template>
