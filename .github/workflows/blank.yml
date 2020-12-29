@@ -25,8 +25,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '8'
-          
-      - name: Install and build node
       - run: npm install
       - run: npm build
         
