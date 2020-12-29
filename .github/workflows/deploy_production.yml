@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: DEPLOY TO PRODUCTION SERVER
+name: DEPLOY
 
 # Controls when the action will run. 
 on:
