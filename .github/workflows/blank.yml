@@ -31,7 +31,7 @@ jobs:
       - name: Publish
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: sftp.dimipak.gr
+          server: dimipak.gr
           username: ${{ secrets.USER_DIGITAL_OCEAN }}
           password: ${{ secrets.PASS_DIGITAL_OCEAN }}
           port: 22
