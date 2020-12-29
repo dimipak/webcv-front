@@ -29,11 +29,11 @@ jobs:
       - run: npm run build
         
       - name: Publish
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        uses: wangyucode/sftp-upload-action@1.1
         with:
-          server: dimipak.gr
+          host: 'dimipak.gr'
           username: ${{ secrets.USER_DIGITAL_OCEAN }}
           password: ${{ secrets.PASS_DIGITAL_OCEAN }}
           port: 22
-          local-dir: "dist/"
-          server-dir: "/var/www/dimipak/"
+          localDir: 'dist'
+          serverDir: '/var/www/dimipak'
