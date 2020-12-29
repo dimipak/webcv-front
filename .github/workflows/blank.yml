@@ -36,4 +36,4 @@ jobs:
           password: ${{ secrets.PASS_DIGITAL_OCEAN }}
           port: 22
           localDir: 'dist'
-          serverDir: '/var/www/dimipak'
+          remoteDir: '/var/www/dimipak'
