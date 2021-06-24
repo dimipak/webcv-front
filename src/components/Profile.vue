@@ -4,7 +4,7 @@
     <div class="profile-pic-container">
       <div id="profile"></div>
       <h1>Dimitris Pakos</h1>
-      <p>Hello and welcome to my personal website</p>
+      <p>Hello and welcome to my personal website!</p>
       <p><strong>#webapps</strong> <strong>#backend</strong> <strong>#restAPI</strong> <strong>#IoT</strong></p>
 
       <div class="icon-container">
