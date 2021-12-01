@@ -3,6 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - npm install -g @vue/cli
       - npm install
 
   build:
