@@ -7,32 +7,32 @@
       <div></div>
     </div>
 
-      <div v-show="!isLoading" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
+    <div v-show="!isLoading" class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1">
 
-        <div class="col" v-for="(portfolio, index) in portfolios" :key="index">
-          <div class="portfolio-job"
-               @click="toggle(index)"
-               :style="{backgroundImage: 'url('+require('@/assets/images/portfolio/websites/'+portfolio.image)+')'}"
-          >
-            <div class="grayscale">
-              <div class="magnify-lens">
-                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="white"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                        d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                  <path fill-rule="evenodd"
-                        d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                </svg>
-              </div>
-              <div class="details">
-                <p>{{portfolio.technology}}</p>
-                <p>{{portfolio.client}}</p>
-              </div>
+      <div class="col" v-for="(portfolio, index) in getPortfolio" :key="index">
+        <div class="portfolio-job"
+             @click="toggle(portfolio)"
+             :style="{backgroundImage: 'url(' + portfolio.image_url + ')'}"
+        >
+          <div class="grayscale">
+            <div class="magnify-lens">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="white"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                      d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                <path fill-rule="evenodd"
+                      d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+              </svg>
+            </div>
+            <div class="details">
+              <p>{{portfolio.technology}}</p>
+              <p>{{portfolio.customer}}</p>
             </div>
           </div>
         </div>
-
       </div>
+
+    </div>
 
 
     <transition name="fade" mode="out-in">
@@ -48,7 +48,7 @@
             </svg>
           </a>
           <div class="portfolio-image">
-            <img :src="require('@/assets/images/portfolio/websites/'+image)"/>
+            <img :src="image"/>
 
           </div>
         </div>
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "Portfolio",
@@ -70,44 +71,17 @@ export default {
       isLoading: true,
       image: "",
       link: "",
-      portfolios: [
-        {
-          'image': 'correct.jpg',
-          'link': 'https://www.correctproductions.com',
-          'technology': 'Wordpress',
-          'client': 'Company'
-        },
-        {
-          'image': 'giasite.jpg',
-          'link': 'https://www.giasite.gr',
-          'technology': 'CodeIgniter',
-          'client': 'Company'
-        },
-        {
-          'image': 'mairyrizou.jpg',
-          'link': 'https://www.mairyrizou.com',
-          'technology': 'Wordpress',
-          'client': 'Personal'
-        },
-        {
-          'image': 'triantafylli.jpg',
-          'link': 'https://www.natashatriantafylli.com',
-          'technology': 'Wordpress',
-          'client': 'Personal'
-        },
-        {
-          'image': 'julius.jpg',
-          'link': 'https://www.juliuscaesar.gr',
-          'technology': 'Wordpress',
-          'client': 'Company'
-        }
-      ]
     }
   },
+  computed: {
+    ...mapGetters(['getPortfolio'])
+  },
   methods: {
-    toggle: function (id) {
-      this.image = this.portfolios[id].image
-      this.link = this.portfolios[id].link
+    ...mapActions(['fetchProfilePortfolio']),
+
+    toggle: function (portfolio) {
+      this.image = portfolio.image_url
+      this.link = portfolio.website_url
       this.modalOpen = !this.modalOpen;
     },
     close: function () {
@@ -122,6 +96,19 @@ export default {
         top: offsetPosition,
         behavior: "smooth"
       })
+    },
+    loadImages: function() {
+      let imageLoaded = 0;
+      for (const portfolio of this.getPortfolio) {
+        const img = new Image();
+        img.src = portfolio.image_url
+        img.onload = () => {
+          imageLoaded++;
+          if (imageLoaded === this.getPortfolio.length) {
+            this.isLoading = false;
+          }
+        }
+      }
     },
     fadeInContent: function () {
       this.$el.querySelectorAll('.col').forEach((elem, index) => {
@@ -138,27 +125,23 @@ export default {
       })
     },
   },
-  created() {
-    let imageLoaded = 0;
-    for (const imageSrc of this.portfolios) {
-      const img = new Image();
-      img.src = require('@/assets/images/portfolio/websites/'+imageSrc.image)
-
-      img.onload = () => {
-        imageLoaded++;
-
-        if (imageLoaded === this.portfolios.length) {
-            this.isLoading = false;
-        }
-
-      };
-    }
-  },
-  mounted() {
+  async created() {
+    await this.fetchProfilePortfolio()
 
     this.scrollTo()
 
-    this.fadeInContent()
+    this.loadImages()
+
+  },
+  mounted() {
+
+    // this.fetchProfilePortfolio()
+    //
+    // this.loadImages()
+
+    // this.scrollTo()
+    //
+    // this.fadeInContent()
   },
   watch: {
     isLoading: function(newValue, oldValue) {
@@ -173,9 +156,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-@import "../assets/sass/variables";
-@import "../assets/sass/mixins";
 
 #component-spinner {
   @include spinner();
@@ -264,7 +244,7 @@ export default {
 
 .col {
   padding-bottom: 50px;
-  opacity: 0;
+  opacity: 1;
 }
 
 h6 {

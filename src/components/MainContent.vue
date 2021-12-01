@@ -1,11 +1,12 @@
 <template>
   <div class="profile-container">
-    <div id="cover"></div>
+    <div id="cover" :style="{backgroundImage: 'url(' + getInfo.cover_image + ')'}"></div>
     <div class="profile-pic-container">
-      <div id="profile"></div>
-      <h1>Dimitris Pakos</h1>
-      <p>Hello and welcome to my personal website!</p>
-      <p><strong>#webapps</strong> <strong>#backend</strong> <strong>#restAPI</strong> <strong>#IoT</strong></p>
+      <div id="profile" :style="{backgroundImage: 'url(' + getInfo.profile_image + ')'}"></div>
+      <h2>{{getInfo.first_name}} {{getInfo.last_name}}</h2>
+      <p>{{getInfo.first_quote}}</p>
+      <p><strong>{{getInfo.second_quote}}</strong></p>
+<!--      <p><strong>#webapps</strong> <strong>#backend</strong> <strong>#restAPI</strong> <strong>#IoT</strong></p>-->
 
       <div class="icon-container">
         <ul class="nav icon-nav">
@@ -53,28 +54,23 @@
             <path fill-rule="evenodd"
                   d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
           </svg>
-          : <a href="mailTo:jimpak13@gmail.com">jimpak13@gmail.com</a>
+          : <a :href="'mailTo:' + getInfo.email">{{getInfo.email}}</a>
         </p>
-        <p>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone" fill="currentColor"
-               xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                  d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-          </svg>
-          : <a href="tel:+306984172841">0030 69 841 72 841</a></p>
       </div>
 
-      <div class="download-cv">
-        <a type="button" class="btn btn-outline-secondary" :href="`${publicPath}Dimitrios.Pakos.CV.pdf`"
-           target="_blank">
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor"
-               xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-            <path fill-rule="evenodd"
-                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-          </svg>
-          Download CV</a>
+      <!--  BUTTON-->
+      <div @click="this.download" class="download-cv btn btn-outline-secondary" :class="{disabled: pdfGenerating}">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+                d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path fill-rule="evenodd"
+                d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+        Download CV
+        <div v-show="pdfGenerating" class="spinner-border spinner-border-sm spinner" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
 
     </div>
@@ -82,28 +78,73 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: "Profile",
+  name: "MainContent",
   data() {
     return {
-      publicPath: process.env.BASE_URL
+      loading: false,
+      pdfGenerating: false,
+      profile: {}
+    }
+  },
+  methods: {
+    ...mapActions(['fetchProfileInfo', 'getPdf']),
+
+    passLoaderStatus() {
+      this.$emit('mcLoader', this.loading)
+    },
+    async download() {
+      this.pdfGenerating = true
+
+      const url = await this.getPdf()
+
+      const fileLink = document.createElement('a');
+
+      fileLink.href = url;
+      fileLink.setAttribute('download', 'Dimitris_Pakos_CV.pdf');
+      document.body.appendChild(fileLink);
+
+      fileLink.click();
+
+      setTimeout(() => this.pdfGenerating = false, 2000)
+    },
+    loadImages: function() {
+      let imageLoaded = 0;
+
+      let images = []
+      images.push({"image_url": this.getInfo.cover_image})
+      images.push({"image_url": this.getInfo.profile_image})
+
+      for (const image of images) {
+        const img = new Image();
+        img.src = image.image_url
+        img.onload = () => {
+          imageLoaded++;
+          if (imageLoaded === images.length) {
+            this.$emit('mcLoaded')
+          }
+        }
+      }
     }
   },
   computed: {
-    yearsExperience: function() {
-      const yearStart = 2017;
-      const yearNow = new Date().getFullYear();
-      return yearNow - yearStart;
-    }
+    ...mapGetters(['getInfo'])
+  },
+  async created() {
+    await this.fetchProfileInfo()
+    this.loadImages()
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 
-
-@import "../assets/sass/variables";
+h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
 
 .profile-container {
   position: relative;
@@ -111,7 +152,6 @@ export default {
 
 #cover {
   height: 260px;
-  background-image: url("../assets/images/cover.jpeg");
   background-position-y: -60px;
   background-position-x: center;
   background-repeat: no-repeat;
@@ -131,7 +171,6 @@ export default {
   width: 180px;
   height: 180px;
   border: 1px solid mintcream;
-  background-image: url("../assets/images/profile.jpg");
   position: absolute;
   background-size: cover;
   background-repeat: no-repeat;
@@ -190,6 +229,10 @@ export default {
   a {
     color: $fontColor;
   }
+}
+
+.spinner {
+  color: $fontColor;
 }
 
 </style>

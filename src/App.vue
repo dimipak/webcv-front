@@ -1,88 +1,78 @@
 <template>
 
-  <div>
-    <div id="loader">
-      <div>
-        <h1>
-          <router-link to="/">
-            <span class="loader-letter">d</span>
-            <span class="loader-letter">i</span>
-            <span class="loader-letter">m</span>
-            <span class="loader-letter">i</span>
-            <span class="loader-letter">p</span>
-            <span class="loader-letter">a</span>
-            <span class="loader-letter">k</span>
-          </router-link>
-        </h1>
-      </div>
-      <div id="spinner" v-show="isLoading || animation">
-        <div></div>
-      </div>
-    </div>
+  <TopBar v-if="getProfile.profile_id > 0" />
 
-    <transition name="enter" mode="out-in">
-      <div v-show="combined" id="app">
-
-        <Profile class="profile-component"/>
-
-        <Navigation ref="nav" id="theNav"/>
-
-        <div ref="scrollToTrigger" id="scrollTopTrigger"></div>
-
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-
-        <div ref="scrollTop" id="scrollTop" @click="scrollToTop">
-          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-          </svg>
-        </div>
-
-      </div>
-    </transition>
+  <div id="spinner" v-show="isLoading || this.getTopBarAnimation">
+    <div></div>
   </div>
+
+  <transition v-if="getProfile.profile_id > 0" name="enter" mode="out-in">
+    <div v-show="!isLoading && !this.getTopBarAnimation" id="app">
+
+      <MainContent v-if="getProfile.profile_id > 0" class="profile-component" @mcLoaded="mainContentLoaded" />
+
+      <Navigation ref="nav" id="theNav"/>
+
+      <div ref="navBarTrigger"></div>
+
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
+
+      <div ref="scrollTop" id="scrollTop" @click="scrollToTop">
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+      </div>
+
+    </div>
+  </transition>
+
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
-import Profile from "@/components/Profile";
-import gsap from 'gsap'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
+import TopBar from '@/components/TopBar.vue'
+import MainContent from '@/components/MainContent.vue'
+import Navigation from '@/components/Navigation.vue'
+import ScrollMagic from 'scrollmagic';
+import { TweenMax } from "gsap"
 
 export default {
-  name: 'App',
+  name: 'Index',
   components: {
-    Navigation,
-    Profile
-  },
-  computed: {
-    combined() {
-      return (!this.isLoading && !this.animation)
-    }
+    TopBar,
+    MainContent,
+    Navigation
   },
   data() {
     return {
-      isLoading: true,
-      animation: true
+      isLoading: true
     }
   },
-  beforeCreate() {
-    // window.onload = () => {
-    //   this.isLoading = false
-    // }
-  },
-  mounted() {
-
-    this.isLoading = false
-
-    gsap.timeline({onComplete: () => { this.animation = false }})
-        .from('.loader-letter', {duration:1, opacity:0, stagger: .1});
-
-    this.scrollToTopShow()
-
-  },
   methods: {
+    ...mapMutations(['changeLogingStatus']),
+
+    ...mapActions(['fetchProfile']),
+
+    // Toggle show arrow for scrolling to top
+    scrollToTopShow: function() {
+      let controller = new ScrollMagic.Controller();
+
+      let scene = new ScrollMagic.Scene({
+        triggerElement: '#theNav', // starting scene, when reaching this element
+        duration: 400 // pin the element for a total of 400px
+      })
+          .setTween(TweenMax.fromTo('#scrollTop', .4, {opacity: 0, display: 'none'}, {opacity: 1, display: 'block'}))
+
+      controller.addScene(scene);
+    },
+    // Get from main container value when is loaded
+    mainContentLoaded() {
+      this.isLoading = false;
+    },
+    // Scroll to top of the page
     scrollToTop: function()
     {
       window.scrollTo({
@@ -90,16 +80,9 @@ export default {
         behavior: "smooth"
       })
     },
-    scrollToTopShow: function() {
-      const scene = this.$scrollmagic.scene({
-        triggerElement: this.$refs.scrollToTrigger,
-        triggerHook: .3,
-      }).setTween(this.$refs.scrollTop, .4, {opacity: 1, display: 'block'});
-
-      this.$scrollmagic.addScene(scene);
-    },
-    navigationBar: function() {
-      const trigger = this.$refs.scrollToTrigger.offsetTop;
+    // Navigation menu bar change position to fixed or relative
+    navigationBar() {
+      const trigger = this.$refs.navBarTrigger.offsetTop;
       const theNav = document.getElementById('theNav');
 
       window.addEventListener('scroll', () => {
@@ -112,32 +95,41 @@ export default {
       })
     }
   },
+  computed: {
+    ...mapGetters(['getLogged', 'getTopBarAnimation', 'getProfile']),
+
+    // Set variable to be true when all page has loaded
+    pageLoaded() {
+      return (!this.isLoading && !this.getTopBarAnimation)
+    }
+  },
+  mounted() {
+    this.fetchProfile()
+  },
   watch: {
-    $route () {
-
-      const theNav = document.getElementById('theNav');
-      theNav.style.position = 'relative';
-    },
-
-    combined: function(value) {
-      if (value === true) {
+    // Watch variable for changes
+    // When is loaded call necessary functions
+    pageLoaded: function(value) {
+      if (value===true) {
         setTimeout(() => {
-          this.navigationBar()
+          this.scrollToTopShow()
+          window.addEventListener('scroll', this.navigationBar)
         })
       }
+
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
-@import "assets/sass/variables";
-@import "assets/sass/mixins";
+
+.loggedOut {
+  color: rgba(255, 0, 0, 0.55);
+}
 
 body {
-  background-color: $backgroundColor;
+  background-color: $backgroundColor !important;
   font-family: 'Work Sans', sans-serif !important;
   overflow-x: hidden;
 }
@@ -149,32 +141,6 @@ body {
   text-align: center;
   color: #2c3e50;
   margin: 0 auto;
-}
-
-#loader {
-  width: 100%;
-  height: auto;
-
-  div {
-    width: max-content;
-    margin: 0 auto;
-
-    h1 {
-      font-family: 'Carter One', cursive;
-      color: $fontColor;
-      padding-top: 10px;
-      position: relative;
-
-      a {
-        color:inherit;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-  }
 }
 
 #spinner {

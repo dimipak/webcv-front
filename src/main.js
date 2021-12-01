@@ -1,16 +1,18 @@
-import './plugins/bootstrap-vue'
-import './plugins/vue-ellipse-progress'
-import './plugins/vue-scrollmagic'
-
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
+import store from './store'
+import router from './router'
+import veProgress from "vue-ellipse-progress";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+import ScrollMagic from 'scrollmagic';
+import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap'
+import { TweenMax, TimelineMax } from "gsap"
 
-import router from "@/router"
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax)
 
-
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+const app = createApp(App)
+app.use(router)
+app.use(store)
+app.use(veProgress)
+app.mount('#app')
