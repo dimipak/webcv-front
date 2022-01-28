@@ -1,4 +1,7 @@
 module.exports = {
+    devServer: {
+        disableHostCheck: process.env.NODE_ENV === 'development'
+    },
     runtimeCompiler: true,
     css: {
         loaderOptions: {
