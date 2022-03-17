@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
-import todos from './modules/todos'
 import profile from './modules/profile'
+import admin from './modules/admin'
 
 export default createStore({
     state: {
@@ -14,7 +14,7 @@ export default createStore({
         setTopBarAnimation: (state, value) => state.topBarAnimation = value
     },
     modules: {
-        todos,
-        profile
+        profile,
+        admin
     }
 });
