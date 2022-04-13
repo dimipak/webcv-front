@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
 import profile from './modules/profile'
-import admin from './modules/admin'
+import admin from './modules/admin/index'
 
-export default createStore({
+export const store = createStore({
     state: {
         topBarAnimation: true
     },

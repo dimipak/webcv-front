@@ -2,7 +2,7 @@
 
   <div class="login-container">
     <div class="login-header">
-      <h1>DIMIPAK</h1>
+      <router-link id="dimipak" :to="{name: 'Home'}"><h1>DIMIPAK</h1></router-link>
     </div>
 
     <form @submit="checkLoginForm">
@@ -29,18 +29,20 @@
 
   </div>
 
+  <NotificationsToast/>
+
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import router from '../router/index'
+import router from '../../router'
 
 export default {
   name: "Home-Admin",
   data() {
     return {
-      username: "",
-      password: "",
+      username: "dimipak",
+      password: "secret",
       loginFormError: {
         error: false,
         message: ""
@@ -58,9 +60,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['loginUser']),
+    ...mapActions('admin', ['loginUser']),
 
-    ...mapMutations(['fetchAccessToken']),
+    ...mapMutations('admin', ['fetchAccessToken']),
 
     login: async function() {
       const statusCode = await this.loginUser({username: this.username, password: this.password})
@@ -120,15 +122,19 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getUser', 'getAccessToken', 'getToken', 'getBadResponse'])
+    ...mapGetters('admin', ['getUser', 'getAccessToken', 'getToken', 'getBadResponse'])
+  },
+  mounted() {
+    console.log("admin")
   }
 }
 </script>
 
 <style>
 
-html, body {
-  background-image: linear-gradient(to right, #ff823f , #fb4a7e);
+#dimipak, #dimipak:hover {
+  color: black;
+  text-decoration: none;
 }
 
 .login-container {

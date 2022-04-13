@@ -1,19 +1,24 @@
 import { createWebHistory, createRouter } from "vue-router";
+
+import Home from "@/views/Home.vue"
 import About from "@/views/About.vue";
 import Skills from "@/views/Skills.vue"
 import Portfolio from "@/views/Portfolio.vue"
 import Experience from "@/views/Experience.vue"
 import Education from "@/views/Education.vue"
-import Admin from "@/views/Admin.vue"
-import Home from "@/views/Home.vue"
-import Profiles from "@/views/Profiles.vue"
-import Profile from "@/views/Profile.vue"
 
-const routes = [
+import AdminRoutes from './admin'
+
+const BaseRoutes = [
     {
         path: "/",
         name: "Home",
         component: Home,
+        beforeEnter: () => {
+            document.body.style.background = "#d5d3d3"
+            // document.html.style.background = "#d5d3d3"
+            return true
+        },
         meta: {
             title: "dimipak"
         },
@@ -44,27 +49,10 @@ const routes = [
                 component: Education
             }
         ]
-    },
-    {
-        path: "/admin",
-        name: "HomeAdmin",
-        component: Admin
-    },
-    {
-        path: "/admin/profiles",
-        name: "Profiles",
-        component: Profiles
-    },
-    {
-        path: "/admin/profiles/:profileId",
-        name: "Profile",
-        component: Profile,
-        beforeEnter: (to, from) => {
-            console.log("before enter profile route true")
-            return true
-        }
     }
 ];
+
+const routes = BaseRoutes.concat(AdminRoutes)
 
 const router = createRouter({
     history: createWebHistory(),

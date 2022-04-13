@@ -1,20 +1,18 @@
 <template>
   <div class="modal-mask">
-    <div class="modal-wrapper">
+    <div class="modal-wrapper" @click.self="$emit('close')">
       <div class="modal-container">
 
-        <div class="modal-header">View Profile</div>
+        <div class="modal-header">
+
+        </div>
 
         <div class="modal-body">
-          <div class="image-container" :style="{backgroundImage: 'url(' + image + ')'}"></div>
-          <p>{{username}}</p>
+
         </div>
 
         <div class="modal-footer">
-          <slot name="footer">
-            default footer
-            <button class="modal-default-button" @click="$emit('close')">cancel</button>
-          </slot>
+            <button class="modal-default-button btn btn-secondary" @click="$emit('close')">Cancel</button>
         </div>
       </div>
     </div>

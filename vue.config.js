@@ -11,7 +11,7 @@ module.exports = {
                 aggregateTimeout: 300,
                 poll: true
             },
-            public: '192.168.4.10' // vagrant machine address
+            // public: '192.168.4.10' // vagrant machine address
         }
     },
     runtimeCompiler: true,

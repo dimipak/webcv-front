@@ -36,12 +36,19 @@
         </div>
       </div>
     </div>
+  <Modal v-if="false"></Modal>
   </div>
 </template>
 
 <script>
+import Modal from "./Modal";
+
 export default {
   name: "CreateProfile",
+  components: {
+    Modal
+  },
+  emits: ['close', 'submit'],
   data() {
     return {
       file: null,

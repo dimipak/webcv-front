@@ -105,6 +105,7 @@ export default {
   },
   mounted() {
     this.fetchProfile()
+    console.log("home")
   },
   watch: {
     // Watch variable for changes
@@ -116,7 +117,6 @@ export default {
           window.addEventListener('scroll', this.navigationBar)
         })
       }
-
     }
   }
 }
@@ -128,8 +128,7 @@ export default {
   color: rgba(255, 0, 0, 0.55);
 }
 
-body {
-  background-color: $backgroundColor !important;
+html, body {
   font-family: 'Work Sans', sans-serif !important;
   overflow-x: hidden;
 }
