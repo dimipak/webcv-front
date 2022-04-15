@@ -3,6 +3,7 @@ import Profiles from "@/views/Admin/Profiles.vue"
 import Profile from "@/views/Admin/Profile.vue"
 import Skills from "@/views/Admin/Skills";
 import About from "@/views/Admin/About";
+import Portfolio from "@/views/Admin/Portfolio";
 
 import setUserId from "../middleware/user";
 
@@ -45,6 +46,11 @@ export default [
                 path: "skills",
                 name: "Admin/Skills",
                 component: Skills
+            },
+            {
+                path: "portfolio",
+                name: "Admin/Portfolio",
+                component: Portfolio
             }
         ]
     }

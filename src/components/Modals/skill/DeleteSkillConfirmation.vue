@@ -8,7 +8,7 @@
         </div>
 
         <div class="modal-body">
-          You are going to delete profile with id '{{profileId}}' and username '{{username}}'
+          You are going to delete skill with id '{{skillId}}' and name '{{name}}'
         </div>
 
         <div class="modal-footer">
@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import Modal from "./Modal";
+import Modal from "../Modal";
 
 export default {
-  name: "DeleteProfileConfirmation",
+  name: "DeleteSkillConfirmation",
   props: {
-    profileId: Number,
-    username: String
+    skillId: Number,
+    name: String
   },
   emits: ['close', 'confirm'],
   components: {

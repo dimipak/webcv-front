@@ -43,7 +43,7 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex'
-import CreateProfile from "@/components/Modals/CreateProfile.vue";
+import CreateProfile from "@/components/Modals/profile/CreateProfile.vue";
 
 export default {
   name: "Profiles",

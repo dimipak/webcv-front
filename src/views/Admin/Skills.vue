@@ -61,9 +61,9 @@
 
 <script>
 import {mapActions, mapGetters, mapMutations} from "vuex";
-import DeleteSkillConfirmation from "../../components/Modals/DeleteSkillConfirmation";
-import UpdateSkill from "../../components/Modals/UpdateSkill";
-import CreateSkill from "../../components/Modals/CreateSkill";
+import DeleteSkillConfirmation from "../../components/Modals/skill/DeleteSkillConfirmation";
+import UpdateSkill from "../../components/Modals/skill/UpdateSkill";
+import CreateSkill from "../../components/Modals/skill/CreateSkill";
 
 export default {
   name: "Skills",

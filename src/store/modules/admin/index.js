@@ -2,12 +2,14 @@ import user from '@/api/admin/user'
 import router from '../../../router'
 import profile from './profile'
 import skill from './skill'
+import portfolio from './portfolio'
 
 const namespaced = true
 
 const modules = {
     profile,
-    skill
+    skill,
+    portfolio
 }
 
 const state = {

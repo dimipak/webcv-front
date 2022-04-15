@@ -19,6 +19,11 @@
                 Skills
               </router-link>
             </li>
+            <li>
+              <router-link :to="{name: 'Admin/Portfolio'}" active-class="active" class="nav-link text-white">
+                Portfolio
+              </router-link>
+            </li>
           </ul>
           <hr>
           <div class="dropdown">
@@ -58,7 +63,7 @@
 <script>
 import {useRoute} from 'vue-router'
 import {mapActions, mapGetters} from 'vuex'
-import DeleteProfileConfirmation from "../../components/Modals/DeleteProfileConfirmation";
+import DeleteProfileConfirmation from "../../components/Modals/profile/DeleteProfileConfirmation";
 import router from "../../router";
 
 export default {
