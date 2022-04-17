@@ -104,7 +104,7 @@ const actions = {
 const mutations = {
 
     setProfiles(state, data) {
-        state.profiles = data.data
+        if (data.data !== null) state.profiles = data.data
     },
 
     setProfile(state, data) {
