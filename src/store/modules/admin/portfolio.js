@@ -87,10 +87,6 @@ const mutations = {
     addPortfolio(state, portfolio) {
         state.portfolios.push(portfolio)
     },
-    // addImageToPortfolio(state, newPortfolio) {
-    //     const index = state.portfolios.findIndex(portfolio => portfolio.portfolio_id === newPortfolio.portfolio_id)
-    //     state.portfolios.splice(index, 1, newPortfolio)
-    // },
     updatePortfolioInArray(state, updatedPortfolio) {
         const index = state.portfolios.findIndex(portfolio => portfolio.portfolio_id === updatedPortfolio.portfolio_id)
         state.portfolios.splice(index, 1, updatedPortfolio)

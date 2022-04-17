@@ -10,19 +10,16 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <router-link :to="{name: 'Admin/About'}" active-class="active" class="nav-link text-white" aria-current="page">
-                About
-              </router-link>
+              <router-link :to="{name: 'Admin/About'}" active-class="active" class="nav-link text-white" aria-current="page">About</router-link>
             </li>
             <li>
-              <router-link :to="{name: 'Admin/Skills'}" active-class="active" class="nav-link text-white">
-                Skills
-              </router-link>
+              <router-link :to="{name: 'Admin/Skills'}" active-class="active" class="nav-link text-white">Skills</router-link>
             </li>
             <li>
-              <router-link :to="{name: 'Admin/Portfolio'}" active-class="active" class="nav-link text-white">
-                Portfolio
-              </router-link>
+              <router-link :to="{name: 'Admin/Portfolio'}" active-class="active" class="nav-link text-white">Portfolio</router-link>
+            </li>
+            <li>
+              <router-link :to="{name: 'Admin/Experience'}" active-class="active" class="nav-link text-white">Experience</router-link>
             </li>
           </ul>
           <hr>

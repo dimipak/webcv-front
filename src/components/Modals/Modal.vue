@@ -31,10 +31,6 @@ export default {
 
 <style>
 
-#app {
-  padding: 1rem;
-}
-
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -43,17 +39,17 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: table;
+  display: block;
+  overflow: scroll;
 }
 
 .modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+  padding: 50px 0 50px 0;
 }
 
 .modal-container {
   width: 300px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;

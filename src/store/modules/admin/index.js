@@ -3,13 +3,15 @@ import router from '../../../router'
 import profile from './profile'
 import skill from './skill'
 import portfolio from './portfolio'
+import experience from './experience'
 
 const namespaced = true
 
 const modules = {
     profile,
     skill,
-    portfolio
+    portfolio,
+    experience
 }
 
 const state = {
