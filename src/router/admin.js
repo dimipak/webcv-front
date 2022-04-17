@@ -5,6 +5,7 @@ import Skills from "@/views/Admin/Skills";
 import About from "@/views/Admin/About";
 import Portfolio from "@/views/Admin/Portfolio";
 import Experience from "@/views/Admin/Experience";
+import Education from "@/views/Admin/Education";
 
 import setUserId from "../middleware/user";
 
@@ -57,6 +58,11 @@ export default [
                 path: "experience",
                 name: "Admin/Experience",
                 component: Experience
+            },
+            {
+                path: "education",
+                name: "Admin/Education",
+                component: Education
             }
         ]
     }

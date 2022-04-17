@@ -18,7 +18,7 @@
           <p>{{experience.company_name}}</p>
           <p>{{experience.role}}</p>
         </td>
-        <td>{{experience.description}}</td>
+        <td><pre class="description">{{experience.description}}</pre></td>
         <td>
           <i class="bi bi-pencil-square actions" @click="experienceData = experience; updateExperienceModal = true"></i>
           <i class="bi bi-trash3 actions" @click="experienceData = experience; deleteExperienceModal = true"></i>
@@ -121,5 +121,8 @@ export default {
   color: white;
   margin-right: 5px;
   cursor: pointer;
+}
+.description {
+  text-align: left;
 }
 </style>

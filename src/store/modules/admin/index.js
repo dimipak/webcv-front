@@ -4,6 +4,7 @@ import profile from './profile'
 import skill from './skill'
 import portfolio from './portfolio'
 import experience from './experience'
+import education from './education'
 
 const namespaced = true
 
@@ -11,7 +12,8 @@ const modules = {
     profile,
     skill,
     portfolio,
-    experience
+    experience,
+    education
 }
 
 const state = {

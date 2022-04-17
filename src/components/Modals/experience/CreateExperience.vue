@@ -4,7 +4,7 @@
       <div class="modal-container" id="modal-container">
 
         <div class="modal-header">
-          Create Portfolio
+          Create Experience
         </div>
 
         <div class="modal-body">

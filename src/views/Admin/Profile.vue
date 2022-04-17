@@ -21,6 +21,9 @@
             <li>
               <router-link :to="{name: 'Admin/Experience'}" active-class="active" class="nav-link text-white">Experience</router-link>
             </li>
+            <li>
+              <router-link :to="{name: 'Admin/Education'}" active-class="active" class="nav-link text-white">Education</router-link>
+            </li>
           </ul>
           <hr>
           <div class="dropdown">
