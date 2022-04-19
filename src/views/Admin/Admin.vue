@@ -41,8 +41,8 @@ export default {
   name: "Home-Admin",
   data() {
     return {
-      username: "dimipak",
-      password: "secret",
+      username: "",
+      password: "",
       loginFormError: {
         error: false,
         message: ""
