@@ -1,6 +1,6 @@
 module.exports = {
     devServer: {
-        disableHostCheck: process.env.VUE_APP_HOST_HEADER
+        disableHostCheck: true
     },
     configureWebpack: {
         devServer: {
