@@ -3,8 +3,15 @@
 </template>
 
 <script>
+import {onMounted} from 'vue'
+
+onMounted(() => {
+  document.title = 'dimipak'
+})
+
 export default {
   name: "App",
+
 }
 </script>
 
