@@ -26,5 +26,6 @@ FROM nginx:stable-alpine AS server
 WORKDIR /usr/share/nginx/html
 
 COPY --from=builder /app/dist .
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Default nginx entrypoint (CMD) is being used
