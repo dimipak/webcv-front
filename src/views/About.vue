@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 ref="about">About</h2>
+    <h2 ref="about">About!</h2>
     <p v-for="(p, index) in getInfo.about" :key="index">{{p}}</p>
   </div>
 </template>
